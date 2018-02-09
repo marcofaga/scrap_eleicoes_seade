@@ -2,9 +2,9 @@
 Captação de dados das eleições municipais do estado de São Paulo dos anos de 1982, 1988 e 1992
 
 Esse script em Python capta os dados eleitorais das eleições de 1982, 1988 e 1992 para todo o Estado de São Paulo.
-Os dados se encontram no site do SEADe em http://produtos.seade.gov.br/produtos/moveleitoral/index.php
-Os dados captados estão em um arquivo csv chamado dados_captados.csv
+Os dados se encontram no site do SEADE em http://produtos.seade.gov.br/produtos/moveleitoral/index.php
+Os dados captados estão na pasta arquivos_finais e correspondem a dois arquivos csv:
+1) Prefeito: dados_captados_prefeito.csv
+2) Vereador: dados_captados_vereador.csv
 
-O spider é o crawler_seade.py na pasta Spider
-
-Nesta versão 1.0 captamos os dados apenas de prefeito.
+Os Spiders estão na pasta Spider

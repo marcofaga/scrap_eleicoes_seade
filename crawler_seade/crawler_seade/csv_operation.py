@@ -12,7 +12,8 @@ head = [
     'cargo'
 ]
 df = pd.read_csv(file, sep=';', names=head)
-df['key'] = df['candidato'] + df['partido'] + df['municipio'] + df['eleicao'].map(str)
+df['key'] = df['candidato'] + df['municipio'] + df['eleicao'].map(str)
 df['dup'] = df.duplicated(['key'])
 df2 = df[(df.dup == True)]
 display(df2)
+len(df2)
