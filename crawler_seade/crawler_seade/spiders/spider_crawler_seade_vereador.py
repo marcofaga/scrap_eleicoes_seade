@@ -14,7 +14,7 @@ def unique(sequence):
 
 
 class crawler_seade(scrapy.Spider):
-    name = "crawler_seade"
+    name = "crawler_seade_vereador"
     login_url = 'http://produtos.seade.gov.br/produtos/moveleitoral/index.php'
     login_url_du = 'http://produtos.seade.gov.br/produtos/moveleitoral/index.php?car=4'
     inicio = 0
@@ -80,7 +80,7 @@ class crawler_seade(scrapy.Spider):
     def post_cargo(self, response):
         request = scrapy.FormRequest(
             url=self.login_url,
-            formdata={'res': '4', 'carg_list[]': '10', 'SAI': 'TELA'},
+            formdata={'res': '4', 'carg_list[]': '22', 'SAI': 'TELA'},
             dont_filter=True,
             callback=self.scrap
         )
@@ -98,7 +98,8 @@ class crawler_seade(scrapy.Spider):
             elementos.append(response.meta['cidade_txt'])
             elementos.append(ano[self.inicio_ano])
             elementos[2] = int(re.sub('\.', '', elementos[2]))
-            elementos.append("PREFEITO")
+            elementos.append("VEREADOR")
+            elementos.append("ELEITO")
             listafin.append(elementos)
             lista = lista[4:]
             x = len(lista)
@@ -107,7 +108,7 @@ class crawler_seade(scrapy.Spider):
             if not(listafin[x] in listafin[:x])
         ]
 
-        csvfile = 'dados_captados.csv'
+        csvfile = 'dados_captados_vereador.csv'
 
         with open(csvfile, 'a') as output:
             writer = csv.writer(
