@@ -8,3 +8,5 @@ Os dados captados estão na pasta arquivos_finais e correspondem a dois arquivos
 2) Vereador: dados_captados_vereador.csv
 
 Os Spiders estão na pasta Spider
+
+V1.2 Inclusa versão dos dados em R.Data na pasta R
