@@ -1,6 +1,6 @@
 # scrap_eleicoes_seade
 Versão 1.3
-Captação de dados das eleições municipais do estado de São Paulo dos anos de 1982, 1985, 1988 e 1992
+Captação de dados das eleições municipais do estado de São Paulo dos anos de 1982, 1985, 1988, 1992 e 1996
 
 Esse script em Python capta os dados eleitorais das eleições de 1982, 1985, 1988 e 1992 para todo o Estado de São Paulo.
 Os dados se encontram no site do SEADE em http://produtos.seade.gov.br/produtos/moveleitoral/index.php
