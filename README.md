@@ -13,9 +13,9 @@ Os Spiders estão na pasta Spider
 Atenção: no ano de 1985 não houve eleição para vereador.
 
 -------
-V1.5 - Incluídas variáveis: código IBGE e TSE dos municípios /n
-V1.5 - Incluído dicionário das variáveis do banco. /n
+V1.5 - Incluídas variáveis: código IBGE e TSE dos municípios
+V1.5 - Incluído dicionário das variáveis do banco.
 
-V1.4 - Incluídos dados das eleições de 1996 /n
-V1.3 - Incluídos dados das eleições de 1985 /n
+V1.4 - Incluídos dados das eleições de 1996
+V1.3 - Incluídos dados das eleições de 1985
 V1.2 - Inclusa versão dos dados em R.Data na pasta R
