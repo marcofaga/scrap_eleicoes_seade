@@ -6,11 +6,12 @@
 
 #BASE ======================================================================
 stop()
-setwd("C:\\projetos\\crawler_seade\\crawler_seade\\crawler_seade\\R")
+setwd("crawler_seade\\crawler_seade\\crawler_seade\\R")
 load("crawler_seade_R.RData")
 
 source("functions/insere_index.R")
 source("functions/clean_apag.R")
+source("functions/duplicate_all.R")
 
 #library ===================================================================
 #install.packages("stringdist")
@@ -168,12 +169,15 @@ bd01_pref_sp$municipio <- as.character(bd01_pref_sp$municipio)
 bd02_ver_sp$municipio <- as.character(bd02_ver_sp$municipio)
 
 apag2 <- data.frame(mun = unique(c(bd01_pref_sp$municipio, bd02_ver_sp$municipio)))
+apag2$mun_base <- apag$Municipio[match(apag2$mun, apag$Municipio)]
+
+apag3 <- apag2[is.na(apag2$mun_base), ]
 
 #usando pacote soundex para achar as strings aproximadas
 
 apag4 <- data.frame()
 
-for(ap1 in apag2$mun) {
+for(ap1 in apag3$mun) {
   
   ap2 <- stringdist(ap1, apag$Municipio, "cosine")
   ap2 <- apag$Municipio[which(ap2 == min(ap2))]
@@ -182,12 +186,16 @@ for(ap1 in apag2$mun) {
   
 }
 
-apag4$ibge <- apag$IBGEcod[match(apag4$X.ADAMANTINA..1, apag$Municipio)]
+apag2 <- apag2[!is.na(apag2$mun_base),]
+names(apag4) <- names(apag2)
+apag2 <- rbind(apag2, apag4)
+apag2$ibge <- apag$IBGEcod[match(apag2$mun_base, apag$Municipio)]
+apag4 <- apag2
 
-bd01_pref_sp$ibge_cod <- apag4$ibge[match(bd01_pref_sp$municipio, apag4$X.ADAMANTINA.)]
+bd01_pref_sp$ibge_cod <- apag4$ibge[match(bd01_pref_sp$municipio, apag4$mun)]
 bd01_pref_sp$tse_cod <- apag$TSEcod[match(bd01_pref_sp$ibge_cod, apag$IBGEcod)]
 
-bd02_ver_sp$ibge_cod <- apag4$ibge[match(bd02_ver_sp$municipio, apag4$X.ADAMANTINA.)]
+bd02_ver_sp$ibge_cod <- apag4$ibge[match(bd02_ver_sp$municipio, apag4$mun)]
 bd02_ver_sp$tse_cod <- apag$TSEcod[match(bd02_ver_sp$ibge_cod, apag$IBGEcod)]
 
 bd01_pref_sp <- bd01_pref_sp[, c(6, 7, 5, 10, 11, 8, 1:4, 9)]
