@@ -1,21 +1,36 @@
-# scrap_eleicoes_seade
-Versão 1.5
-Captação de dados das eleições municipais do estado de São Paulo dos anos de 1982, 1985, 1988, 1992 e 1996
+# 📊 Extração e Organização de Dados Históricos das Eleições Municipais Paulistas (1982–1996)
 
-Esse script em Python capta os dados eleitorais das eleições de 1982, 1985, 1988, 1992 e 1996 para todo o Estado de São Paulo.
-Os dados se encontram no site do SEADE em http://produtos.seade.gov.br/produtos/moveleitoral/index.php
-Os dados captados estão na pasta arquivos_finais e correspondem a dois arquivos csv:
-1) Prefeito: dados_captados_prefeito.csv
-2) Vereador: dados_captados_vereador.csv
+**Projeto:** `scrap_eleicoes_seade` — **Versão 1.5**
 
-Os Spiders estão na pasta Spider
+Este projeto tem como objetivo a **extração automatizada e a organização de dados eleitorais históricos** das eleições municipais do estado de São Paulo, compreendendo os anos de **1982, 1985, 1988, 1992 e 1996**. A coleta foi realizada por meio de *web scraping* sobre os arquivos disponibilizados pelo site da Fundação SEADE:  
+👉 [http://produtos.seade.gov.br/produtos/moveleitoral/index.php](http://produtos.seade.gov.br/produtos/moveleitoral/index.php)
 
-Atenção: no ano de 1985 não houve eleição para vereador.
+A partir do desenvolvimento de spiders em Python, foi possível estruturar um banco de dados limpo e padronizado contendo informações detalhadas das eleições para os cargos de **prefeito** e **vereador** (exceto 1985, quando não houve eleição para vereador).
 
--------
-V1.5 - Incluídas variáveis: código IBGE e TSE dos municípios
-V1.5 - Incluído dicionário das variáveis do banco.
+---
 
-V1.4 - Incluídos dados das eleições de 1996
-V1.3 - Incluídos dados das eleições de 1985
-V1.2 - Inclusa versão dos dados em R.Data na pasta R
+## 📁 Arquivos Gerados
+
+- `dados_captados_prefeito.csv` — Resultados das eleições para prefeito  
+- `dados_captados_vereador.csv` — Resultados das eleições para vereador  
+- Versão dos dados em `.RData` para uso direto no R  
+- Dicionário de variáveis documentando o conteúdo e formato dos campos
+
+---
+
+## 🔧 Estrutura do Projeto
+
+- **Spiders** implementadas em Python (pasta `Spider`)  
+- **Scripts de processamento e limpeza de dados**  
+- Dados finais salvos em `arquivos_finais`
+
+---
+
+## 🆕 Melhorias na Versão 1.5
+
+- Inclusão dos **códigos IBGE e TSE** dos municípios para facilitar integração com outras bases  
+- Inclusão de **dicionário de variáveis** para facilitar o reuso do banco por outros pesquisadores
+
+---
+
+Este projeto integra meu portfólio como uma demonstração de competências em **web scraping, organização de bases históricas e preparação de dados para análise em larga escala**, contribuindo para estudos sobre eleições, comportamento político e desenvolvimento regional.
